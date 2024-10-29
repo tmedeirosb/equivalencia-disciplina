@@ -14,7 +14,7 @@ matriz_similaridade = pd.read_csv('matriz_similaridade.csv', index_col=0)
 # Filtros e inputs do usuário
 disciplinas = matriz_similaridade.index.tolist()
 disciplina_selecionada = st.selectbox('Selecione uma Disciplina de Ingresso', disciplinas)
-k = st.slider('Selecione o valor de k (número de disciplinas similares)', min_value=1, max_value=10, value=5)
+k = st.slider('Selecione o valor de k (número de disciplinas similares)', min_value=1, max_value=30, value=5)
 
 gerar_graficos = st.button('Gerar Gráficos')
 
