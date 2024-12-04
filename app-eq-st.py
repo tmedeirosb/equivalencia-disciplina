@@ -65,6 +65,14 @@ if gerar_graficos:
     disciplinas_similares_indices = disciplinas_similares.index.tolist()
     disciplinas_para_mapa = [disciplina_selecionada] + disciplinas_similares_indices
 
+    # Exibir o texto antes do mapa de calor
+    st.subheader('Equivalência Pedagógica')
+    texto_equivalencia = f"""
+    Há equivalência pedagógica para a Matéria/Disciplina de **{disciplina_selecionada}** com as seguintes disciplinas: 
+    {', '.join(disciplinas_similares_indices)}
+    """
+    st.write(texto_equivalencia)    
+
     # Filtrar a matriz de similaridade para as disciplinas selecionadas
     matriz_filtrada = matriz_similaridade.loc[disciplinas_para_mapa, disciplinas_para_mapa]
 
