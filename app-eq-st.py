@@ -81,3 +81,9 @@ if gerar_graficos:
     dendrogram(linked, labels=matriz_filtrada.index, distance_sort='descending', show_leaf_counts=True, ax=ax_dendro)
     plt.xticks(rotation=90)
     st.pyplot(fig_dendro)
+
+    # Gerar o crosstab das disciplinas similares
+    st.subheader('Crosstab das Disciplinas Selecionadas')
+    df_crosstab = df_filtrado[df_filtrado['disciplina_ingresso'].isin(disciplinas_para_mapa)]
+    crosstab = pd.crosstab(df_crosstab['disciplina_ingresso'], df_crosstab['componente_curricular'])
+    st.write(crosstab)
