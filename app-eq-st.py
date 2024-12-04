@@ -50,7 +50,7 @@ disciplina_selecionada = st.selectbox('Selecione uma Disciplina de Ingresso', di
 k = st.slider('Selecione o valor de k (número de disciplinas similares)', min_value=1, max_value=30, value=5)
 th = st.slider('Defina o Threshold de Similaridade', min_value=0.0, max_value=1.0, value=0.5)
 
-gerar_graficos = st.button('Gerar Gráficos')
+gerar_graficos = st.button('Gerar Resultados')
 
 # Função para obter disciplinas similares
 def obter_disciplinas_similares(matriz_similaridade, disciplina, top_n=5, threshold=0.5):
@@ -73,7 +73,7 @@ if gerar_graficos:
     # Formatar as disciplinas similares como uma lista
     if disciplinas_similares_indices:
         for disciplina in disciplinas_similares_indices:
-            st.markdown(f"- **{disciplina}**")
+            st.markdown(f"- {disciplina}")
     else:
         st.write("Nenhuma disciplina similar foi encontrada com os critérios estabelecidos.")
 
