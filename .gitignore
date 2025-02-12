@@ -1,3 +1,6 @@
 *.ipynb 
 relacao_professores_disciplinas.csv
 relacao_professores_disciplinas.xlsx
+relacao_professores_disciplinas_old.csv
+relacao_professores_disciplinas_old.xlsx
+Levenshtein_agrupamento.xlsx
