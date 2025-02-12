@@ -35,7 +35,8 @@ modalidade_selecionada = st.multiselect('Selecione a(s) Modalidade(s)', modalida
 df_filtrado = df[(df['ano_diario'].isin(ano_selecionado)) & (df['modalidade'].isin(modalidade_selecionada))]
 
 # Criar a matriz de ocorrência
-matriz_ocorrencia = pd.crosstab(df_filtrado['disciplina_ingresso'], df_filtrado['componente_curricular'])
+#matriz_ocorrencia = pd.crosstab(df_filtrado['disciplina_ingresso'], df_filtrado['componente_curricular'])
+matriz_ocorrencia = pd.crosstab(df_filtrado['disciplina_ingresso'], df_filtrado['componente_curricular_semespaco'])
 
 # Selecionar a métrica de similaridade
 metodo_similaridade = st.selectbox('Selecione a Métrica de Similaridade', ['Cosine Similarity', 'Correlation Coefficient'])
@@ -97,5 +98,6 @@ if gerar_graficos:
     # Gerar o crosstab das disciplinas similares
     st.subheader('Crosstab das Disciplinas Selecionadas')
     df_crosstab = df_filtrado[df_filtrado['disciplina_ingresso'].isin(disciplinas_para_mapa)]
-    crosstab = pd.crosstab(df_crosstab['disciplina_ingresso'], df_crosstab['componente_curricular'])
+    #crosstab = pd.crosstab(df_crosstab['disciplina_ingresso'], df_crosstab['componente_curricular'])
+    crosstab = pd.crosstab(df_crosstab['disciplina_ingresso'], df_crosstab['componente_curricular_semespaco'])
     st.write(crosstab)
