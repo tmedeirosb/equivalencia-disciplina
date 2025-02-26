@@ -48,7 +48,7 @@ matriz_similaridade = pd.DataFrame(similaridade, index=matriz_ocorrencia.index, 
 # Filtros e inputs do usuário
 disciplinas = matriz_similaridade.index.tolist()
 disciplina_selecionada = st.selectbox('Selecione uma Disciplina de Ingresso', disciplinas)
-k = st.slider('Selecione o valor de k (número de disciplinas similares)', min_value=1, max_value=30, value=5)
+k = st.slider('Selecione o valor de k (número de disciplinas similares)', min_value=1, max_value=df_filtrado['disciplina_ingresso'].nunique(), value=5)
 th = st.slider('Defina o Threshold de Similaridade', min_value=0.0, max_value=1.0, value=0.5)
 
 gerar_graficos = st.button('Gerar Resultados')
