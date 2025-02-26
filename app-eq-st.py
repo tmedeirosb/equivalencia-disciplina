@@ -68,7 +68,7 @@ if gerar_graficos:
 
     # Exibir o texto antes do mapa de calor
     st.subheader('Equivalência Pedagógica')
-    texto_equivalencia = f"Há equivalência pedagógica para a Matéria/Disciplina de **{disciplina_selecionada}** com as seguintes disciplinas:"
+    texto_equivalencia = f"Há equivalência pedagógica para a Matéria/Disciplina de **{disciplina_selecionada}** com as seguintes disciplinas ({len(disciplinas_similares_indices)}):"
     st.write(texto_equivalencia)
 
     # Formatar as disciplinas similares como uma lista
