@@ -39,7 +39,8 @@ df_filtrado = df[(df['ano_diario'].isin(ano_selecionado)) & (df['modalidade'].is
 matriz_ocorrencia = pd.crosstab(df_filtrado['disciplina_ingresso'], df_filtrado['componente_curricular_semespaco'])
 
 # Selecionar a métrica de similaridade
-metodo_similaridade = st.selectbox('Selecione a Métrica de Similaridade', ['Cosine Similarity', 'Correlation Coefficient'])
+#metodo_similaridade = st.selectbox('Selecione a Métrica de Similaridade', ['Cosine Similarity', 'Correlation Coefficient'])
+metodo_similaridade = st.selectbox('Selecione a Métrica de Similaridade', ['Correlation Coefficient'])
 
 # Calcular a similaridade
 similaridade = calcular_similaridade(matriz_ocorrencia, metodo_similaridade)
