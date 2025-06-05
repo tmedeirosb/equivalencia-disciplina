@@ -88,13 +88,16 @@ if gerar_graficos:
     sns.heatmap(matriz_filtrada, annot=True, cmap='coolwarm', ax=ax)
     st.pyplot(fig)
 
-    # Gerar o dendograma
-    st.subheader('Dendrograma das Disciplinas Selecionadas')
-    linked = linkage(1 - matriz_filtrada, 'single')  # 1 - similaridade para converter em distância
-    fig_dendro, ax_dendro = plt.subplots(figsize=(10, 7))
-    dendrogram(linked, labels=matriz_filtrada.index, distance_sort='descending', show_leaf_counts=True, ax=ax_dendro)
-    plt.xticks(rotation=90)
-    st.pyplot(fig_dendro)
+    # Gerar o dendograma (somente se houver mais de uma disciplina)
+    if len(matriz_filtrada) > 1:
+        st.subheader('Dendrograma das Disciplinas Selecionadas')
+        linked = linkage(1 - matriz_filtrada, 'single')  # 1 - similaridade para converter em distância
+        fig_dendro, ax_dendro = plt.subplots(figsize=(10, 7))
+        dendrogram(linked, labels=matriz_filtrada.index, distance_sort='descending', show_leaf_counts=True, ax=ax_dendro)
+        plt.xticks(rotation=90)
+        st.pyplot(fig_dendro)
+    else:
+        st.info("Dendrograma não pode ser gerado: é necessário pelo menos 2 disciplinas para criar o dendrograma.")
 
     # Gerar o crosstab das disciplinas similares
     st.subheader('Crosstab das Disciplinas Selecionadas')
